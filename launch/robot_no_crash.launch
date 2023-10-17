@@ -1,0 +1,12 @@
+<launch>
+    <arg name="robot_ns" default="robot0"/>
+    <param name="wall_dist" value="0.5" type="double" />
+
+    
+    <include file="$(find robot_no_crash)/launch/robot_supervisor.launch">
+    	<remap from="laser_1" to="laser_0"/>
+    	<arg name="robot_ns" value="$(arg robot_ns)"/>
+    </include>
+    
+    <include file="$(find stdr_launchers)/launch/server_with_map_and_gui.launch"/>
+</launch>
